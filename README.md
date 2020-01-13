@@ -4,3 +4,4 @@ Strength does not come from winning. Your struggles develop your strengths. When
 dum spiro sparo
 whilst I breathe, I hope
 I'm a Gemini, and that's pretty cool.
+Geminis hve a keen sense of what is right, and there's nothing you can do to change their mind about it. The thing is, you won't want to, because it's true.
