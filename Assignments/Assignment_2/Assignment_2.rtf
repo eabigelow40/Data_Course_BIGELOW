@@ -21,4 +21,4 @@ cat BioLog_Plate_Data.csv | awk -F, '\{print $5\}' | sort | uniq | > ~/Desktop/D
 wc -l *.txt | sort | tail -n2 | head -n1\
 \
 6.\
-}
+for N in many_files/*/data/* ;do bash scripts/sum_lines.sh $N ;done > ~/Desktop/Data_Course_BIGELOW/Assignments/Assignment_2/file_sums.txt}
