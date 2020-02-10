@@ -18,7 +18,7 @@ list.files()
 
 # Lizzy used this to make dat work. setwd("/Users/<username>/Desktop/Data_Course/Data")
 
-dat = read.csv("./thatch_ant.csv") #???
+dat = read.csv("./Data/thatch_ant.csv") #???
 names(dat)
 
 #why are these plots different???
@@ -169,9 +169,11 @@ for(i in levels(dat$Size.class)){
 
 # can calculate something for each value of i ...can use to subset to groups of interest
 for(i in levels(dat$Size.class)){
+  #print(i) 
   print(mean(dat2[dat2$Size.class == i,"Mass"]))
 }
 
+# my example -> mean(dat2[dat2$Size.class == "<30","Mass"])
 # more complex:
 # define a new vector or data frame outside the for loop first
 new_vector = c() # it's empty
@@ -210,15 +212,24 @@ dat2summary <- dat2 %>% group_by(Size.class) %>%
 
 # 1.  Make a scatterplot of headwidth vs mass. See if you can get the points to be colored by "Colony"
 
+plot(dat2$Headwidth,dat2$Mass, main = "Thatch Ant Stats", xlab = "Headwidth", ylab = "Mass")
 
 # 2.  Write the code to save it (with meaningful labels) as a jpeg file
 
+jpeg("Thatch_Ant_Stats.jpeg")
+plot(dat2$Headwidth,dat2$Mass, main = "Thatch Ant Stats", xlab = "Headwidth", ylab = "Mass")
+dev.off()
 
 # 3.  Subset the thatch ant data set to only include ants from colony 1 and colony 2
 
+dat2 %>% filter(dat2$Colony) %>% filter(dat2$Colony[1:2])
+dat2$Colony[1:2]
 
 # 4.  Write code to save this new subset as a .csv file
 
+csv("Colonies_1:2.csv")
+dat2 %>% filter(dat2$Colony) %>% filter(dat2$Colony[1:2])
+dev.off()
 
 # 5.  Upload this R script (with all answers filled in and tasks completed) to canvas
       # I should be able to run your R script and get all the plots created and saved, etc.

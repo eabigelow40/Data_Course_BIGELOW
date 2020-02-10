@@ -1,0 +1,13 @@
+1.	read.csv() turns strings into factors
+
+2.	read.csv2 is separated by a semicolon and decimals are commas instead of a period
+
+3.	It exists to coincide with data gathered in Europe
+
+4.	
+
+5.	summary(df$Home.Value)
+
+6.	Home.Value
+
+7.	col=df$region colored the data points by region
