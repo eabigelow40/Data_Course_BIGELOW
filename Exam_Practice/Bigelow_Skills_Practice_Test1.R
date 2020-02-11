@@ -24,22 +24,17 @@ jpeg("./Bigelow_Plot2.jpeg")
 boxplot(DNA_Concentration_Ben~Year_Collected, data = dna, xlab = "year", ylab = "DNA concentration", col = "light green")
 dev.off()
 
-plot(y=dna$DNA_Concentration_Katy,x=dna$Year_Collected)
-plot(dna$Year_Collected,dna$DNA_Concentration_Ben)
+bvk <- (dna$DNA_Concentration_Ben-dna$DNA_Concentration_Katy)
+min(bvk)
+dna$Year_Collected[diff == min(diff)]
 
-dna$DNA_Concentration_Katy-dna$DNA_Concentration_Ben
-years <- as.numeric(dna$Year_Collected)
-mean(dna$DNA_Concentration_Ben)
+downlab <- dna %>% filter(Lab == "Downstairs")
+downlab$Date_Collected <- as.POSIXct(downlab$Date_Collected)
+#dna$Date_Collected <- as.character(dna$Date_Collected)
 
-for (i in levels(factor(dna$Year_Collected))){
-  #print(i)
-  #print(mean(dna$DNA_Concentration_Ben))
-  #print(mean(dna$DNA_Concentration_Katy))
-  
-  print (c(i, mean(dna$DNA_Concentration_Ben), mean(dna$DNA_Concentration_Katy)))
-}
+class(dna$Date_Collected)
+plot(downlab$Date_Collected,downlab$DNA_Concentration_Ben,main = "Ben's Data Over Time",xlab = "Date Collected",ylab = "Concentration")
 
-
-
-
-
+jpeg("./Practice_Ben_DNA_over_time.jpg")
+plot(downlab$Date_Collected,downlab$DNA_Concentration_Ben,main = "Ben's Data Over Time",xlab = "Date Collected",ylab = "Concentration")
+dev.off()
