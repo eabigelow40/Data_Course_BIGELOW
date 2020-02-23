@@ -169,7 +169,7 @@ for(i in levels(dat$Size.class)){
 
 # can calculate something for each value of i ...can use to subset to groups of interest
 for(i in levels(dat$Size.class)){
-  #print(i) 
+  print(i) 
   print(mean(dat2[dat2$Size.class == i,"Mass"]))
 }
 

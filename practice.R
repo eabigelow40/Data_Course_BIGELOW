@@ -20,7 +20,7 @@ summary(iris)
 
 # Boxplot of Sepal Length as function of Species
 
-plot(iris$Petal.Species,iris$Sepal.Length,main = "You're gonna Hate Iris",xlab = "Petal Length",ylab = "Sepal Length")
+plot(iris$Petal.Length,iris$Sepal.Length,main = "You're gonna Hate Iris",xlab = "Petal Length",ylab = "Sepal Length",col=iris$Species)
 
 hist(iris$Sepal.Length,breaks = 30)
 
