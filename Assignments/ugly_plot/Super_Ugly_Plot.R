@@ -1,3 +1,4 @@
+library(ggplot2)
 ggplot(mtcars, aes(x=wt,y=mpg,color = factor(disp))) +
   geom_point(size = 75) + geom_smooth(method = "lm") +
   labs(title = "Effect of Miles per Gallon on Weight",
@@ -10,3 +11,8 @@ ggplot(mtcars, aes(x=wt,y=mpg,color = factor(disp))) +
         plot.background = element_rect(fill = "orange"),
         panel.grid = element_line(size = 5, color = "orange"),
         legend.background = element_rect(fill = "light blue"))
+
+
+
+ggsave("./ugly78.png",height = 20,width = 20)
+

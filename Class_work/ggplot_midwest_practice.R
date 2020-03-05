@@ -82,13 +82,20 @@ p4 <- ggplot(midwest,aes(x=area/max(midwest$area),y=log10(poptotal))) +
 p4
 
 p4 + facet_wrap(~state)
-p4 + facet_wrap(~state, scales = "free")
-p4 + facet_wrap(~state) + theme(legend.position = "none", strip.text.x = element_text(size = 12, face="bold"))
-p4 + facet_wrap(~ state) + theme(legend.position = "none", 
-                                 strip.text.x = element_text(size = 12, face="bold"), # found in the theme command
-                                 strip.background = element_rect(fill = "lightblue"))
 
-p5 = ggplot(midwest, aes(x=state,y=percollege, fill=state)) + labs(x="State",y="Percent with college degree")
+p4 + facet_wrap(~state, scales = "free")
+
+p4 + facet_wrap(~state) + 
+  theme(legend.position = "none", 
+        strip.text.x = element_text(size = 12, face="bold"))
+
+p4 + facet_wrap(~ state) + 
+  theme(legend.position = "none",
+        strip.text.x = element_text(size = 12, face="bold"), # found in the theme command
+        strip.background = element_rect(fill = "lightblue"))
+
+p5 = ggplot(midwest, aes(x=state,y=percollege, fill=state)) + 
+  labs(x="State",y="Percent with college degree")
 
 p5
 
@@ -97,14 +104,18 @@ p5 + geom_violin()
 p5 + geom_bar(stat="identity") # Doesn't look right
 
 data("MplsStops")
-ggplot(MplsStops, aes(x=lat)) + geom_histogram() + labs(title = "Latitude of police stops in Minneapolis - 2017")
-ggplot(MplsStops, aes(x=lat, fill = race)) + geom_density(alpha = .5) + labs(title = "Latitude of police stops in Minneapolis - 2017")
+ggplot(MplsStops, aes(x=lat)) + geom_histogram() + 
+  labs(title = "Latitude of police stops in Minneapolis - 2017")
+ggplot(MplsStops, aes(x=lat, fill = race)) + 
+  geom_density(alpha = .5) + labs(title = "Latitude of police stops in Minneapolis - 2017")
 
 
-ggplot(MplsStops, aes(x=lat, fill = race)) + geom_histogram() + labs(title = "Latitude of police stops in Minneapolis - 2017") +
+ggplot(MplsStops, aes(x=lat, fill = race)) + 
+  geom_histogram() + labs(title = "Latitude of police stops in Minneapolis - 2017") +
   facet_wrap(~race)
 
-ggplot(MplsStops, aes(x=lat, fill = race)) + geom_density(alpha = .5) + labs(title = "Latitude of police stops in Minneapolis - 2017") +
+ggplot(MplsStops, aes(x=lat, fill = race)) + 
+  geom_density(alpha = .5) + labs(title = "Latitude of police stops in Minneapolis - 2017") +
   facet_wrap(~race)
 
 ggplot(MplsStops, aes(x=lat,y=long,color=race)) + geom_point() + theme_minimal()

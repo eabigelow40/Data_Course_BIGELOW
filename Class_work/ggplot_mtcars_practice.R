@@ -58,7 +58,7 @@ mtcars1 <- mutate(mtcars, DIFF = mgp-resids)
 
 
 
-p2 <- ggplot(mtcars,aes(x=disp,y=mpg)) + geom_smooth()+
+p2 <- ggplot(mtcars,aes(x=disp,y=mpg)) + geom_smooth()
   
 
 p2
@@ -87,7 +87,8 @@ ggplot(df,aes(x=Nitrogen,y=GrowthRate)) +
 
 
 ggplot(df,aes(x=Nitrogen,y=GrowthRate,color=Light)) +
-  geom_smooth(method="lm",formula = y ~ poly(x,2),se=FALSE) + geom_point() + facet_wrap(~Species) +
+  geom_smooth(method="lm",formula = y ~ poly(x,2),se=FALSE) + 
+  geom_point() + facet_wrap(~Species) +
   scale_color_gradient(low="Blue",high='Red')
 
 mod2 <- lm(data=df,GrowthRate ~ poly(Nitrogen,2))
